@@ -1,0 +1,21 @@
+diff --git a/sassc.c b/sassc.c
+index 6e9c02e..c7dcc83 100644
+--- a/sassc.c
++++ b/sassc.c
+@@ -65,7 +65,15 @@ int get_argv_utf8(int* argc_ptr, char*** argv_ptr) {
+ }
+ #else
+ #include <unistd.h>
++#ifndef __QNX__
+ #include <sysexits.h>
++#else
++#define EX_DATAERR 65
++#define EX_IOERR 74
++#define EX_OSERR 71
++#define EX_USAGE 64
++#endif
++
+ #endif
+ 
+ int output(int error_status, const char* error_message, const char* output_string, const char* outfile) {
+
