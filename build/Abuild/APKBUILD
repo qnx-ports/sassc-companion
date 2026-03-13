@@ -1,6 +1,6 @@
 pkgname=sassc
 pkgver=3.6.2
-pkgrel=1
+pkgrel=${pkgrel:-0}
 pkgdesc="Libsass command line driver"
 url="https://github.com/sass/sassc"
 arch="all"
@@ -64,6 +64,7 @@ package() {
 }
 
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 fff3995ce8608bdaed5f4f1352ae4f1f882de58663b932c598d6168df421e4dbf907ec0f8caebb1e56490a71ca11105726f291b475816dd53e705bc53121969f  sassc-3.6.2.tar.gz
 d20496cca2960944c3e8251a5fc6ab1b291d76817d7c566fdeb656e2f58da9ffae2e984b91a3d9a885d2ad34f64071607704c95e85a5b700643cbfe094b52381  fix-sysexit-nonexists.patch
